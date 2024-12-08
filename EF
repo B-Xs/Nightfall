@@ -1,0 +1,371 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+
+
+
+
+local Ui = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local CloseOpen = Instance.new("ImageButton")
+local Underline = Instance.new("Frame")
+local UIGradient = Instance.new("UIGradient")
+local Tween = Instance.new("Frame")
+local Section = Instance.new("Frame")
+local UIListLayout = Instance.new("UIListLayout")
+
+local UICorner = Instance.new("UICorner")
+local Holder = Instance.new("Frame")
+
+
+
+
+
+local UICorner_2 = Instance.new("UICorner")
+local UIGradient_2 = Instance.new("UIGradient")
+local UICorner_3 = Instance.new("UICorner")
+
+local UICorner_4 = Instance.new("UICorner")
+local UIGradient_3 = Instance.new("UIGradient")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Ui.Name = "Ui"
+Ui.Parent = ScreenGui
+Ui.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+Ui.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Ui.BorderSizePixel = 0
+Ui.Position = UDim2.new(0.669343054, 0, 0.437810957, 0)
+Ui.Size = UDim2.new(0, 210, 0, 33)
+
+Title.Name = "Title"
+Title.Parent = Ui
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(0.292452842, 0, 0, 0)
+Title.Size = UDim2.new(0, 88, 0, 33)
+Title.Font = Enum.Font.Arial
+	Title.Text = getgenv().Tit or "No"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 14.000
+
+CloseOpen.Name = "CloseOpen"
+CloseOpen.Parent = Ui
+CloseOpen.BackgroundColor3 = Color3.fromRGB(255, 58, 209)
+CloseOpen.BackgroundTransparency = 1.000
+CloseOpen.BorderColor3 = Color3.fromRGB(0, 0, 0)
+CloseOpen.BorderSizePixel = 0
+CloseOpen.Position = UDim2.new(0.850865781, 0, 0.0908037424, 0)
+CloseOpen.Rotation = 45.000
+CloseOpen.Size = UDim2.new(0, 25, 0, 26)
+CloseOpen.Image = "http://www.roblox.com/asset/?id=6035047380"
+CloseOpen.ImageColor3 = Color3.fromRGB(53, 53, 53)
+
+Underline.Name = "Underline"
+Underline.Parent = Ui
+Underline.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Underline.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Underline.BorderSizePixel = 0
+Underline.Position = UDim2.new(0, 0, 0.939393938, 0)
+Underline.Size = UDim2.new(0, 210, 0, 2)
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 43, 243)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 54, 124))}
+UIGradient.Parent = Underline
+
+Tween.Name = "Tween"
+Tween.Parent = Ui
+Tween.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+Tween.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Tween.BorderSizePixel = 0
+Tween.ClipsDescendants = true
+Tween.Position = UDim2.new(0, 0, 1, 0)
+Tween.Size = UDim2.new(0, 210, 0, 195)
+
+Section.Name = "Section"
+Section.Parent = Tween
+Section.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Section.BackgroundTransparency = 1.000
+Section.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Section.BorderSizePixel = 0
+Section.ClipsDescendants = true
+Section.Position = UDim2.new(0.0476190485, 0, 0.0360360965, 0)
+Section.Size = UDim2.new(0, 193, 0, 166)
+
+UIListLayout.Parent = Section
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0, 8)
+
+
+
+function AddToggle(ToggleTitle,ToggleCallBack)
+	local Checkbox = Instance.new("TextButton")
+	local ToggleName = Instance.new("TextLabel")
+	Checkbox.Name = "Checkbox"
+	Checkbox.Parent = Section
+	Checkbox.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+	Checkbox.BorderColor3 = Color3.fromRGB(53, 53, 53)
+	Checkbox.Size = UDim2.new(0, 20, 0, 20)
+	Checkbox.Font = Enum.Font.SourceSans
+	Checkbox.Text = ""
+	Checkbox.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Checkbox.TextSize = 14.000
+
+	ToggleName.Name = "ToggleName"
+	ToggleName.Parent = Checkbox
+	ToggleName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ToggleName.BackgroundTransparency = 1.000
+	ToggleName.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	ToggleName.BorderSizePixel = 0
+	ToggleName.Position = UDim2.new(1.45000005, 0, 0, 0)
+	ToggleName.Size = UDim2.new(0, 62, 0, 20)
+	ToggleName.Font = Enum.Font.Arial
+	ToggleName.Text = "Toggle Title"
+	ToggleName.TextColor3 = Color3.fromRGB(255, 255, 255)
+	ToggleName.TextSize = 14.000
+	ToggleName.TextXAlignment = Enum.TextXAlignment.Left
+
+	UICorner.CornerRadius = UDim.new(0, 4)
+	UICorner.Parent = Checkbox
+	local state = false
+	Checkbox.MouseButton1Click:Connect(function()
+		state = not state
+		Checkbox.BackgroundColor3 = state and Color3.fromRGB(255, 58, 209) or Color3.fromRGB(39, 39, 39)
+		if ToggleCallBack then
+			ToggleCallBack(state)
+		end
+	end)
+end
+
+
+function Slider(slidertitle,min,max,slidercallback)
+
+
+	Holder.Name = "Holder"
+	Holder.Parent = Section
+	Holder.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+	Holder.BackgroundTransparency = 1.000
+	Holder.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Holder.BorderSizePixel = 0
+	Holder.Position = UDim2.new(0, 0, 0.159090906, 0)
+	Holder.Size = UDim2.new(0, 193, 0, 36)
+
+	local SliderTitle = Instance.new("TextLabel")
+	local SliderValue = Instance.new("TextLabel")
+	local SliderFrame = Instance.new("Frame")
+	local ProgressBar = Instance.new("Frame")
+	local Knob = Instance.new("TextButton")
+
+	SliderTitle.Name = "Slider Title"
+	SliderTitle.Parent = Holder
+	SliderTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	SliderTitle.BackgroundTransparency = 1.000
+	SliderTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	SliderTitle.BorderSizePixel = 0
+	SliderTitle.Size = UDim2.new(0, 51, 0, 24)
+	SliderTitle.Font = Enum.Font.Arial
+	SliderTitle.Text = slidertitle
+	SliderTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+	SliderTitle.TextSize = 14.000
+	SliderTitle.TextXAlignment = Enum.TextXAlignment.Left
+
+	SliderValue.Name = "SliderValue"
+	SliderValue.Parent = Holder
+	SliderValue.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	SliderValue.BackgroundTransparency = 1.000
+	SliderValue.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	SliderValue.BorderSizePixel = 0
+	SliderValue.Position = UDim2.new(0.915448904, 0, 0, 0)
+	SliderValue.Size = UDim2.new(0, 13, 0, 24)
+	SliderValue.Font = Enum.Font.Arial
+	SliderValue.Text = "0"
+	SliderValue.TextColor3 = Color3.fromRGB(255, 255, 255)
+	SliderValue.TextSize = 14.000
+
+	SliderFrame.Name = "SliderFrame"
+	SliderFrame.Parent = Holder
+	SliderFrame.BackgroundColor3 = Color3.fromRGB(43, 43, 43)
+	SliderFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	SliderFrame.BorderSizePixel = 0
+	SliderFrame.Position = UDim2.new(0, 0, 0.670409322, 0)
+	SliderFrame.Size = UDim2.new(0, 190, 0, 7)
+
+	ProgressBar.Name = "ProgressBar"
+	ProgressBar.Parent = SliderFrame
+	ProgressBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ProgressBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	ProgressBar.BorderSizePixel = 0
+	ProgressBar.Size = UDim2.new(0, 51, 0, 7)
+
+	Knob.Name = "Knob"
+	Knob.Parent = ProgressBar
+	Knob.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Knob.BackgroundTransparency = 1.000
+	Knob.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Knob.BorderSizePixel = 0
+	Knob.Size = UDim2.new(0, 190, 0, 7)
+	Knob.Font = Enum.Font.SourceSans
+	Knob.Text = ""
+	Knob.TextColor3 = Color3.fromRGB(0, 0, 0)
+	Knob.TextSize = 14.000
+
+	UICorner_2.CornerRadius = UDim.new(1, 0)
+	UICorner_2.Parent = ProgressBar
+
+	UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 43, 243)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 54, 124))}
+	UIGradient_2.Parent = ProgressBar
+
+	UICorner_3.CornerRadius = UDim.new(1, 0)
+	UICorner_3.Parent = SliderFrame
+
+
+	local sliderFrame = SliderFrame
+	local progressBar =ProgressBar
+	local knob = Knob
+	local FUCK = SliderValue
+
+	local TweenService = game:GetService("TweenService")
+	local userInputService = game:GetService("UserInputService")
+
+	local minValue = min -- Minimum value of the slider
+	local maxValue = max -- Maximum value of the slider
+	local sliderValue = minValue -- Current slider value
+
+	-- Function to update the slider value and position
+	local function updateSlider(inputX)
+		local sliderAbsolutePosition = sliderFrame.AbsolutePosition.X
+		local sliderAbsoluteSize = sliderFrame.AbsoluteSize.X
+
+		local newKnobPosition = math.clamp(inputX - sliderAbsolutePosition, 0, sliderAbsoluteSize)
+		local percentage = newKnobPosition / sliderAbsoluteSize
+		sliderValue = math.floor(minValue + (maxValue - minValue) * percentage)
+
+		local tween = TweenService:Create(progressBar, TweenInfo.new(0.1), {
+			Size = UDim2.new(percentage, 0, 1, 0)
+		})
+		tween:Play()
+		FUCK.Text = sliderValue
+		slidercallback(sliderValue)
+	end
+
+	-- Detect user input for the slider
+	knob.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 then
+			local connection
+			connection = userInputService.InputChanged:Connect(function(input)
+				if input.UserInputType == Enum.UserInputType.MouseMovement then
+					updateSlider(input.Position.X)
+				end
+			end)
+
+			userInputService.InputEnded:Connect(function(endInput)
+				if endInput.UserInputType == Enum.UserInputType.MouseButton1 then
+					connection:Disconnect()
+				end
+			end)
+		end
+	end)
+
+
+
+end
+
+function AddButton(BVName, Buttoncallback)
+	-- Create the button
+	local Buttonf = Instance.new("TextButton")
+	Buttonf.Name = "Button"
+	Buttonf.Parent = Section -- Make sure 'Section' is defined elsewhere in your code
+	Buttonf.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Buttonf.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Buttonf.BorderSizePixel = 0
+	Buttonf.Size = UDim2.new(0, 189, 0, 22)
+	Buttonf.Font = Enum.Font.Arial
+	Buttonf.TextColor3 = Color3.fromRGB(0, 0, 0)
+	Buttonf.Text = BVName
+	Buttonf.TextSize = 14.000
+
+	-- Adding UI elements like corners and gradient
+	local UICorner_4 = Instance.new("UICorner")
+	UICorner_4.CornerRadius = UDim.new(0, 4)
+	UICorner_4.Parent = Buttonf
+
+	local UIGradient_3 = Instance.new("UIGradient")
+	UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 43, 243)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 54, 124))}
+	UIGradient_3.Parent = Buttonf
+
+	-- Connect the button's click event to the callback function
+	Buttonf.MouseButton1Click:Connect(function()
+		Buttoncallback() -- Call the callback function without the parentheses here
+	end)
+end 
+
+
+
+local function WAYHG_fake_script() -- CloseOpen.LocalScript 
+	local script = Instance.new('LocalScript', CloseOpen)
+
+
+	-- Define the button
+	local button = script.Parent
+
+	-- Tween service
+	local TweenService = game:GetService("TweenService")
+	local UIT = script.Parent.Parent.Tween
+
+	-- Tween settings
+	local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.Out) -- 0.5 seconds tween
+
+	-- Define states for toggle
+	local isToggled = false
+
+	-- Button goals
+	local goalsOn = {
+		Rotation = 45,
+		ImageColor3 = Color3.fromRGB(53, 53, 53),
+	}
+
+	local goalsOff = {
+		Rotation = 180,
+		ImageColor3 = Color3.fromRGB(255, 58, 209),
+	}
+
+	-- Dropdown goals
+	local dropdownOpen = {
+		Position = UDim2.new(0, 0, 1, 0), -- Original position (dropdown visible)
+		Size = UDim2.new(0, 210, 0, 195),
+	}
+
+	local dropdownClosed = {
+		Position = UDim2.new(0, 0, 1, 0), -- Dropdown hidden (collapsed)
+		Size = UDim2.new(0, 210, 0, 0),
+	}
+
+	-- Function to handle button press
+	button.MouseButton1Click:Connect(function()
+		-- Toggle state
+		isToggled = not isToggled
+
+		-- Set button goals based on state
+		local buttonGoals = isToggled and goalsOn or goalsOff
+
+		-- Set dropdown goals based on state
+		local dropdownGoals = isToggled and dropdownOpen or dropdownClosed
+
+		-- Tween the button
+		local buttonTween = TweenService:Create(button, tweenInfo, buttonGoals)
+		buttonTween:Play()
+
+		-- Tween the dropdown frame
+		local dropdownTween = TweenService:Create(UIT, tweenInfo, dropdownGoals)
+		dropdownTween:Play()
+	end)
+
+end
+coroutine.wrap(WAYHG_fake_script)()
